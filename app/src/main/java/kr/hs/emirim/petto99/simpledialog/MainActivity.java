@@ -9,7 +9,8 @@ import android.widget.Button;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
-    String[] items=new String[] {"젤리빈", "킷켓","롤리팝"};
+    String[] items=new String[] {"젤리빈", "킷켓","롤리팝","마쉬멜로우"};
+    boolean[] checkArr={false, true, false, true};
     Button but;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,12 +29,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         AlertDialog.Builder dialog=new AlertDialog.Builder(this);
         dialog.setTitle("First Dialog");
-        dialog.setItems(items, new DialogInterface.OnClickListener() {
+        dialog.setSingleChoiceItems(items, 0, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 but.setText(items[which]);
             }
         });
+
         dialog.setIcon(R.drawable.pponyo);
         dialog.setPositiveButton("확인", new DialogInterface.OnClickListener() {
             @Override
