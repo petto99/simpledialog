@@ -29,9 +29,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         AlertDialog.Builder dialog=new AlertDialog.Builder(this);
         dialog.setTitle("First Dialog");
-        dialog.setSingleChoiceItems(items, 0, new DialogInterface.OnClickListener() {
+
+//        dialog.setSingleChoiceItems(items, 0, new DialogInterface.OnClickListener() {
+//            @Override
+//            public void onClick(DialogInterface dialog, int which) {
+//                but.setText(items[which]);
+//            }
+//        });
+
+        dialog.setMultiChoiceItems(items, checkArr, new DialogInterface.OnMultiChoiceClickListener() {
             @Override
-            public void onClick(DialogInterface dialog, int which) {
+            public void onClick(DialogInterface dialog, int which, boolean isChecked) {
                 but.setText(items[which]);
             }
         });
